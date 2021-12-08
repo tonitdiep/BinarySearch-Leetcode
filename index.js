@@ -12,6 +12,23 @@
 //binary search cuts your list in half to find what you are looking for
 nums = [-1, 0, 3, 5, 9, 12]
 target = 9
+//recursive
+var search = function(nums, target, low = 0, high = nums.length - 1) {
+       if (low > high) {
+         return - 1;     
+       }
+    
+     const mid = Math.floor((low + high) / 2) ;
+    console.log('low:', low, 'high:', high, 'mid:', mid)
+     if (nums[mid] > target) {
+         return search(nums, target, low, mid - 1);
+     }  else if (nums[mid] < target) {
+         return search(nums, target, mid + 1, high);
+     } else  {
+         return mid; 
+     }
+};
+
 var search = function(nums, target) {
 
 ////104ms runtime////
@@ -47,3 +64,4 @@ var search = function(nums, target) {
 //         return -1;
 
 }
+
